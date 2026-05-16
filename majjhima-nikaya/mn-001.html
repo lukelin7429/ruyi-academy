@@ -150,10 +150,43 @@
     background: #fffbf3;
     border-left: 3px solid #c9a96b;
     padding: 14px 20px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 14.5px;
     color: #4a4a4a;
     line-height: 1.65;
+  }
+  .text-toggle {
+    margin: 0 0 28px;
+    text-align: center;
+  }
+  .text-toggle button {
+    background: #fff;
+    border: 1.5px solid #c9a96b;
+    color: #2a2725;
+    padding: 13px 28px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .text-toggle button:hover {
+    background: #fffbf3;
+    border-color: #a87f3d;
+  }
+  .text-toggle button .icon {
+    color: #c9a96b;
+    margin-right: 8px;
+    font-weight: 600;
+  }
+  .text-toggle .note {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6b6b6b;
+    font-style: italic;
   }
   .text-block {
     font-family: Georgia, "Times New Roman", "PingFang TC", serif;
@@ -461,10 +494,15 @@
   <section>
     <h2>The text</h2>
     <div class="text-intro">
-      The Pāli is structurally repetitive — 192 sections cycling through 8 perspectives × 24 categories. We give the opening in full, one complete cycle in full, and then signpost the rest so the structure stays legible. The translation is Bhikkhu Sujato's (released CC0 by SuttaCentral).
+      The Pāli is structurally repetitive — 192 sections cycling through 8 perspectives × 24 categories. The condensed view below gives the opening in full, one complete cycle in full, and then signposts the rest so the structure stays legible. The full 194-segment view is one click away — and reading it all is part of reading the sutta. The translation is Bhikkhu Sujato's (released CC0 by SuttaCentral).
     </div>
 
-    <div class="text-block">
+    <div class="text-toggle">
+      <button id="toggle-text" type="button"><span class="icon">↓</span><span class="btn-label">Show all 194 segments</span></button>
+      <span class="note">No real reading of a sūtra skips the repetitions — they are the form. Open the full text when you are ready.</span>
+    </div>
+
+    <div class="text-block" id="text-condensed">
 
       <p><span class="segno">§1</span>So I have heard. At one time the Buddha was staying near Ukkaṭṭhā, in the Subhaga Forest at the root of a magnificent sal tree. There the Buddha addressed the mendicants, "Mendicants!" "Venerable sir," they replied. The Buddha said this:</p>
 
@@ -517,6 +555,271 @@
       <p><span class="segno">§194</span>"He directly knows extinguishment as extinguishment. Having directly known extinguishment as extinguishment, he does not conceive it to be extinguishment … Why is that? Because he has understood that approval is the root of suffering …"</p>
 
       <p style="margin-top:18px"><strong>That is what the Buddha said. But the mendicants did not approve what the Buddha said.</strong></p>
+
+      <div class="ending-mark">· · ·</div>
+
+    </div>
+
+    <div class="text-block" id="text-full" style="display:none">
+
+      <p><span class="segno">§1</span>So I have heard. At one time the Buddha was staying near Ukkaṭṭhā, in the Subhaga Forest at the root of a magnificent sal tree. There the Buddha addressed the mendicants, "Mendicants!" "Venerable sir," they replied. The Buddha said this:</p>
+
+      <p><span class="segno">§2</span>"Mendicants, I will teach you the explanation of the root of all things. Listen and apply your minds well, I will speak." "Yes, sir," they replied. The Buddha said this:</p>
+
+      <h3 style="margin-top:32px">Stage 1 — The unlearned ordinary person</h3>
+
+      <p><span class="segno">§3</span>"Take an unlearned ordinary person who has not seen the noble ones, and is neither skilled nor trained in the teaching of the noble ones. They've not seen true persons, and are neither skilled nor trained in the teaching of the true persons. They perceive earth as earth. Having perceived earth as earth, they conceive it to be earth, they conceive it in earth, they conceive it as earth, they conceive that 'earth is mine', they approve earth. Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§4</span>They perceive water as water. Having perceived water as water, they conceive it to be water … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§5</span>They perceive fire as fire. Having perceived fire as fire, they conceive it to be fire … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§6</span>They perceive air as air. Having perceived air as air, they conceive it to be air … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§7</span>They perceive creatures as creatures. Having perceived creatures as creatures, they conceive them to be creatures … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§8</span>They perceive gods as gods. Having perceived gods as gods, they conceive them to be gods … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§9</span>They perceive the Progenitor as the Progenitor. Having perceived the Progenitor as the Progenitor, they conceive him to be the Progenitor … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§10</span>They perceive the Divinity as the Divinity. Having perceived the Divinity as the Divinity, they conceive him to be the Divinity … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§11</span>They perceive those of streaming radiance as those of streaming radiance. Having perceived those of streaming radiance as those of streaming radiance, they conceive them to be those of streaming radiance … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§12</span>They perceive those of universal beauty as those of universal beauty. But then they conceive them to be those of universal beauty … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§13</span>They perceive those of abundant fruit as those of abundant fruit. Having perceived those of abundant fruit as those of abundant fruit, they conceive them to be those of abundant fruit … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§14</span>They perceive the Vanquisher as the Vanquisher. Having perceived the Vanquisher as the Vanquisher, they conceive him to be the Vanquisher … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§15</span>They perceive the dimension of infinite space as the dimension of infinite space. Having perceived the dimension of infinite space as the dimension of infinite space, they conceive it to be the dimension of infinite space … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§16</span>They perceive the dimension of infinite consciousness as the dimension of infinite consciousness. Having perceived the dimension of infinite consciousness as the dimension of infinite consciousness, they conceive it to be the dimension of infinite consciousness … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§17</span>They perceive the dimension of nothingness as the dimension of nothingness. Having perceived the dimension of nothingness as the dimension of nothingness, they conceive it to be the dimension of nothingness … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§18</span>They perceive the dimension of neither perception nor non-perception as the dimension of neither perception nor non-perception. Having perceived the dimension of neither perception nor non-perception as the dimension of neither perception nor non-perception, they conceive it to be the dimension of neither perception nor non-perception … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§19</span>They perceive the seen as the seen. Having perceived the seen as the seen, they conceive it to be the seen … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§20</span>They perceive the heard as the heard. Having perceived the heard as the heard, they conceive it to be the heard … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§21</span>They perceive the thought as the thought. Having perceived the thought as the thought, they conceive it to be the thought … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§22</span>They perceive the known as the known. Having perceived the known as the known, they conceive it to be the known … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§23</span>They perceive oneness as oneness. Having perceived oneness as oneness, they conceive it to be oneness … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§24</span>They perceive diversity as diversity. Having perceived diversity as diversity, they conceive it to be diversity … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§25</span>They perceive all as all. Having perceived all as all, they conceive it to be all … Why is that? Because they haven't completely understood it, I say.</p>
+
+      <p><span class="segno">§26</span>They perceive extinguishment as extinguishment. Having perceived extinguishment as extinguishment, they conceive it to be extinguishment, they conceive it in extinguishment, they conceive it as extinguishment, they conceive that 'extinguishment is mine', they approve extinguishment. Why is that? Because they haven't completely understood it, I say.</p>
+
+      <h3 style="margin-top:32px">Stage 2 — The trainee</h3>
+
+      <p><span class="segno">§27</span>A mendicant who is a trainee, who hasn't achieved their heart's desire, but lives aspiring to the supreme sanctuary from the yoke, directly knows earth as earth. Having directly known earth as earth, let them not conceive it to be earth, let them not conceive it in earth, let them not conceive it as earth, let them not conceive that 'earth is mine', let them not approve earth. Why is that? So that they may completely understand it, I say.</p>
+
+      <p><span class="segno">§28</span>They directly know water …</p>
+      <p><span class="segno">§29</span>fire …</p>
+      <p><span class="segno">§30</span>air …</p>
+      <p><span class="segno">§31</span>creatures …</p>
+      <p><span class="segno">§32</span>gods …</p>
+      <p><span class="segno">§33</span>the Progenitor …</p>
+      <p><span class="segno">§34</span>the Divinity …</p>
+      <p><span class="segno">§35</span>those of streaming radiance …</p>
+      <p><span class="segno">§36</span>those replete with glory …</p>
+      <p><span class="segno">§37</span>those of abundant fruit …</p>
+      <p><span class="segno">§38</span>the Vanquisher …</p>
+      <p><span class="segno">§39</span>the dimension of infinite space …</p>
+      <p><span class="segno">§40</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§41</span>the dimension of nothingness …</p>
+      <p><span class="segno">§42</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§43</span>the seen …</p>
+      <p><span class="segno">§44</span>the heard …</p>
+      <p><span class="segno">§45</span>the thought …</p>
+      <p><span class="segno">§46</span>the known …</p>
+      <p><span class="segno">§47</span>oneness …</p>
+      <p><span class="segno">§48</span>diversity …</p>
+      <p><span class="segno">§49</span>all …</p>
+
+      <p><span class="segno">§50</span>They directly know extinguishment as extinguishment. Having directly known extinguishment as extinguishment, let them not conceive it to be extinguishment, let them not conceive it in extinguishment, let them not conceive it as extinguishment, let them not conceive that 'extinguishment is mine', let them not approve extinguishment. Why is that? So that they may completely understand it, I say.</p>
+
+      <h3 style="margin-top:32px">Stage 3 — The arahant: because they have completely understood</h3>
+
+      <p><span class="segno">§51</span>A mendicant who is perfected — with defilements ended, who has completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart's goal, utterly ended the fetter of continued existence, and is rightly freed through enlightenment — directly knows earth as earth. Having directly known earth as earth, they do not conceive it to be earth, they do not conceive it in earth, they do not conceive it as earth, they do not conceive that 'earth is mine', they do not approve earth. Why is that? Because they have completely understood it, I say.</p>
+
+      <p><span class="segno">§52</span>They directly know water …</p>
+      <p><span class="segno">§53</span>fire …</p>
+      <p><span class="segno">§54</span>air …</p>
+      <p><span class="segno">§55</span>creatures …</p>
+      <p><span class="segno">§56</span>gods …</p>
+      <p><span class="segno">§57</span>the Progenitor …</p>
+      <p><span class="segno">§58</span>the Divinity …</p>
+      <p><span class="segno">§59</span>those of streaming radiance …</p>
+      <p><span class="segno">§60</span>those replete with glory …</p>
+      <p><span class="segno">§61</span>those of abundant fruit …</p>
+      <p><span class="segno">§62</span>the Vanquisher …</p>
+      <p><span class="segno">§63</span>the dimension of infinite space …</p>
+      <p><span class="segno">§64</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§65</span>the dimension of nothingness …</p>
+      <p><span class="segno">§66</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§67</span>the seen …</p>
+      <p><span class="segno">§68</span>the heard …</p>
+      <p><span class="segno">§69</span>the thought …</p>
+      <p><span class="segno">§70</span>the known …</p>
+      <p><span class="segno">§71</span>oneness …</p>
+      <p><span class="segno">§72</span>diversity …</p>
+      <p><span class="segno">§73</span>all …</p>
+
+      <p><span class="segno">§74</span>They directly know extinguishment as extinguishment. Having directly known extinguishment as extinguishment, they do not conceive it to be extinguishment, they do not conceive it in extinguishment, they do not conceive it as extinguishment, they do not conceive that 'extinguishment is mine', they do not approve extinguishment. Why is that? Because they have completely understood it, I say.</p>
+
+      <h3 style="margin-top:32px">Stage 4 — The arahant: free of greed</h3>
+
+      <p><span class="segno">§75</span>A mendicant who is perfected — with defilements ended, who has completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart's goal, utterly ended the fetter of continued existence, and is rightly freed through enlightenment — directly knows earth as earth. Having directly known earth as earth, they do not conceive it to be earth, they do not conceive it in earth, they do not conceive it as earth, they do not conceive that 'earth is mine', they do not approve earth. Why is that? Because they're free of greed due to the ending of greed.</p>
+
+      <p><span class="segno">§76</span>They directly know water …</p>
+      <p><span class="segno">§77</span>fire …</p>
+      <p><span class="segno">§78</span>air …</p>
+      <p><span class="segno">§79</span>creatures …</p>
+      <p><span class="segno">§80</span>gods …</p>
+      <p><span class="segno">§81</span>the Progenitor …</p>
+      <p><span class="segno">§82</span>the Divinity …</p>
+      <p><span class="segno">§83</span>those of streaming radiance …</p>
+      <p><span class="segno">§84</span>those replete with glory …</p>
+      <p><span class="segno">§85</span>those of abundant fruit …</p>
+      <p><span class="segno">§86</span>the Vanquisher …</p>
+      <p><span class="segno">§87</span>the dimension of infinite space …</p>
+      <p><span class="segno">§88</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§89</span>the dimension of nothingness …</p>
+      <p><span class="segno">§90</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§91</span>the seen …</p>
+      <p><span class="segno">§92</span>the heard …</p>
+      <p><span class="segno">§93</span>the thought …</p>
+      <p><span class="segno">§94</span>the known …</p>
+      <p><span class="segno">§95</span>oneness …</p>
+      <p><span class="segno">§96</span>diversity …</p>
+      <p><span class="segno">§97</span>all …</p>
+
+      <p><span class="segno">§98</span>They directly know extinguishment as extinguishment. Having directly known extinguishment as extinguishment, they do not conceive it to be extinguishment, they do not conceive it in extinguishment, they do not conceive it as extinguishment, they do not conceive that 'extinguishment is mine', they do not approve extinguishment. Why is that? Because they're free of greed due to the ending of greed.</p>
+
+      <h3 style="margin-top:32px">Stage 5 — The arahant: free of hate</h3>
+
+      <p><span class="segno">§99</span>A mendicant who is perfected — with defilements ended, who has completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart's goal, utterly ended the fetter of continued existence, and is rightly freed through enlightenment — directly knows earth as earth. Having directly known earth as earth, they do not conceive it to be earth, they do not conceive it in earth, they do not conceive it as earth, they do not conceive that 'earth is mine', they do not approve earth. Why is that? Because they're free of hate due to the ending of hate.</p>
+
+      <p><span class="segno">§100</span>They directly know water …</p>
+      <p><span class="segno">§101</span>fire …</p>
+      <p><span class="segno">§102</span>air …</p>
+      <p><span class="segno">§103</span>creatures …</p>
+      <p><span class="segno">§104</span>gods …</p>
+      <p><span class="segno">§105</span>the Progenitor …</p>
+      <p><span class="segno">§106</span>the Divinity …</p>
+      <p><span class="segno">§107</span>those of streaming radiance …</p>
+      <p><span class="segno">§108</span>those replete with glory …</p>
+      <p><span class="segno">§109</span>those of abundant fruit …</p>
+      <p><span class="segno">§110</span>the Vanquisher …</p>
+      <p><span class="segno">§111</span>the dimension of infinite space …</p>
+      <p><span class="segno">§112</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§113</span>the dimension of nothingness …</p>
+      <p><span class="segno">§114</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§115</span>the seen …</p>
+      <p><span class="segno">§116</span>the heard …</p>
+      <p><span class="segno">§117</span>the thought …</p>
+      <p><span class="segno">§118</span>the known …</p>
+      <p><span class="segno">§119</span>oneness …</p>
+      <p><span class="segno">§120</span>diversity …</p>
+      <p><span class="segno">§121</span>all …</p>
+
+      <p><span class="segno">§122</span>They directly know extinguishment as extinguishment. Having directly known extinguishment as extinguishment, they do not conceive it to be extinguishment, they do not conceive it in extinguishment, they do not conceive it as extinguishment, they do not conceive that 'extinguishment is mine', they do not approve extinguishment. Why is that? Because they're free of hate due to the ending of hate.</p>
+
+      <h3 style="margin-top:32px">Stage 6 — The arahant: free of delusion</h3>
+
+      <p><span class="segno">§123</span>A mendicant who is perfected — with defilements ended, who has completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart's goal, utterly ended the fetter of continued existence, and is rightly freed through enlightenment — directly knows earth as earth. Having directly known earth as earth, they do not conceive it to be earth, they do not conceive it in earth, they do not conceive it as earth, they do not conceive that 'earth is mine', they do not approve earth. Why is that? Because they're free of delusion due to the ending of delusion.</p>
+
+      <p><span class="segno">§124</span>They directly know water …</p>
+      <p><span class="segno">§125</span>fire …</p>
+      <p><span class="segno">§126</span>air …</p>
+      <p><span class="segno">§127</span>creatures …</p>
+      <p><span class="segno">§128</span>gods …</p>
+      <p><span class="segno">§129</span>the Progenitor …</p>
+      <p><span class="segno">§130</span>the Divinity …</p>
+      <p><span class="segno">§131</span>those of streaming radiance …</p>
+      <p><span class="segno">§132</span>those replete with glory …</p>
+      <p><span class="segno">§133</span>those of abundant fruit …</p>
+      <p><span class="segno">§134</span>the Vanquisher …</p>
+      <p><span class="segno">§135</span>the dimension of infinite space …</p>
+      <p><span class="segno">§136</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§137</span>the dimension of nothingness …</p>
+      <p><span class="segno">§138</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§139</span>the seen …</p>
+      <p><span class="segno">§140</span>the heard …</p>
+      <p><span class="segno">§141</span>the thought …</p>
+      <p><span class="segno">§142</span>the known …</p>
+      <p><span class="segno">§143</span>oneness …</p>
+      <p><span class="segno">§144</span>diversity …</p>
+      <p><span class="segno">§145</span>all …</p>
+
+      <p><span class="segno">§146</span>They directly know extinguishment as extinguishment. Having directly known extinguishment as extinguishment, they do not conceive it to be extinguishment, they do not conceive it in extinguishment, they do not conceive it as extinguishment, they do not conceive that 'extinguishment is mine', they do not approve extinguishment. Why is that? Because they're free of delusion due to the ending of delusion.</p>
+
+      <h3 style="margin-top:32px">Stage 7 — The Tathāgata: completely understood to the end</h3>
+
+      <p><span class="segno">§147</span>The Realized One, the perfected one, the fully awakened Buddha directly knows earth as earth. Having directly known earth as earth, he does not conceive it to be earth, he does not conceive it in earth, he does not conceive it as earth, he does not conceive that 'earth is mine', he does not approve earth. Why is that? Because the Realized One has completely understood it to the end, I say.</p>
+
+      <p><span class="segno">§148</span>He directly knows water …</p>
+      <p><span class="segno">§149</span>fire …</p>
+      <p><span class="segno">§150</span>air …</p>
+      <p><span class="segno">§151</span>creatures …</p>
+      <p><span class="segno">§152</span>gods …</p>
+      <p><span class="segno">§153</span>the Progenitor …</p>
+      <p><span class="segno">§154</span>the Divinity …</p>
+      <p><span class="segno">§155</span>those of streaming radiance …</p>
+      <p><span class="segno">§156</span>those replete with glory …</p>
+      <p><span class="segno">§157</span>those of abundant fruit …</p>
+      <p><span class="segno">§158</span>the Vanquisher …</p>
+      <p><span class="segno">§159</span>the dimension of infinite space …</p>
+      <p><span class="segno">§160</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§161</span>the dimension of nothingness …</p>
+      <p><span class="segno">§162</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§163</span>the seen …</p>
+      <p><span class="segno">§164</span>the heard …</p>
+      <p><span class="segno">§165</span>the thought …</p>
+      <p><span class="segno">§166</span>the known …</p>
+      <p><span class="segno">§167</span>oneness …</p>
+      <p><span class="segno">§168</span>diversity …</p>
+      <p><span class="segno">§169</span>all …</p>
+
+      <p><span class="segno">§170</span>He directly knows extinguishment as extinguishment. Having directly known extinguishment as extinguishment, he does not conceive it to be extinguishment, he does not conceive it in extinguishment, he does not conceive it as extinguishment, he does not conceive that 'extinguishment is mine', he does not approve extinguishment. Why is that? Because the Realized One has completely understood it to the end, I say.</p>
+
+      <h3 style="margin-top:32px">Stage 8 — The Tathāgata: approval is the root of suffering</h3>
+
+      <p><span class="segno">§171</span>The Realized One, the perfected one, the fully awakened Buddha directly knows earth as earth. Having directly known earth as earth, he does not conceive it to be earth, he does not conceive it in earth, he does not conceive it as earth, he does not conceive that 'earth is mine', he does not approve earth. Why is that? Because he has understood that approval is the root of suffering, and that rebirth comes from continued existence; whoever has come to be gets old and dies. That's why the Realized One — with the ending, fading away, cessation, giving up, and letting go of all cravings — has awakened to the supreme perfect awakening, I say.</p>
+
+      <p><span class="segno">§172</span>He directly knows water …</p>
+      <p><span class="segno">§173</span>fire …</p>
+      <p><span class="segno">§174</span>air …</p>
+      <p><span class="segno">§175</span>creatures …</p>
+      <p><span class="segno">§176</span>gods …</p>
+      <p><span class="segno">§177</span>the Progenitor …</p>
+      <p><span class="segno">§178</span>the Divinity …</p>
+      <p><span class="segno">§179</span>those of streaming radiance …</p>
+      <p><span class="segno">§180</span>those replete with glory …</p>
+      <p><span class="segno">§181</span>those of abundant fruit …</p>
+      <p><span class="segno">§182</span>the Vanquisher …</p>
+      <p><span class="segno">§183</span>the dimension of infinite space …</p>
+      <p><span class="segno">§184</span>the dimension of infinite consciousness …</p>
+      <p><span class="segno">§185</span>the dimension of nothingness …</p>
+      <p><span class="segno">§186</span>the dimension of neither perception nor non-perception …</p>
+      <p><span class="segno">§187</span>the seen …</p>
+      <p><span class="segno">§188</span>the heard …</p>
+      <p><span class="segno">§189</span>the thought …</p>
+      <p><span class="segno">§190</span>the known …</p>
+      <p><span class="segno">§191</span>oneness …</p>
+      <p><span class="segno">§192</span>diversity …</p>
+      <p><span class="segno">§193</span>all …</p>
+
+      <p><span class="segno">§194</span>He directly knows extinguishment as extinguishment. Having directly known extinguishment as extinguishment, he does not conceive it to be extinguishment, he does not conceive it in extinguishment, he does not conceive it as extinguishment, he does not conceive that 'extinguishment is mine', he does not approve extinguishment. Why is that? Because he has understood that approval is the root of suffering, and that rebirth comes from continued existence; whoever has come to be gets old and dies. That's why the Realized One — with the ending, fading away, cessation, giving up, and letting go of all cravings — has awakened to the supreme perfect Awakening, I say."</p>
+
+      <p style="margin-top:20px"><strong>That is what the Buddha said. But the mendicants did not approve what the Buddha said.</strong></p>
 
       <div class="ending-mark">· · ·</div>
 
@@ -657,6 +960,30 @@
 
 <script>
 (function() {
+  // Text view toggle
+  const toggleBtn = document.getElementById('toggle-text');
+  const condensed = document.getElementById('text-condensed');
+  const full = document.getElementById('text-full');
+  const label = toggleBtn.querySelector('.btn-label');
+  const icon = toggleBtn.querySelector('.icon');
+  toggleBtn.addEventListener('click', function() {
+    const showingFull = full.style.display !== 'none';
+    if (showingFull) {
+      full.style.display = 'none';
+      condensed.style.display = '';
+      label.textContent = 'Show all 194 segments';
+      icon.textContent = '↓';
+    } else {
+      condensed.style.display = 'none';
+      full.style.display = '';
+      label.textContent = 'Back to condensed view';
+      icon.textContent = '↑';
+      // Scroll the text section into view so the reader doesn't lose their place
+      toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // Quiz
   const quiz = document.getElementById('quiz');
   const answeredEl = document.getElementById('answered-count');
   const correctEl = document.getElementById('correct-count');
