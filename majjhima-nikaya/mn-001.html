@@ -75,52 +75,94 @@
   .glance dt { color: #6b6b6b; font-weight: 600; }
   .glance dd { color: #2a2725; }
 
-  /* Tab navigation */
+  /* Tab navigation — card style */
   .tabs {
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid #e0dcd2;
-    margin: 8px 0 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 8px 0 48px;
     position: sticky;
     top: 0;
     background: #fff;
+    padding: 14px 0 16px;
     z-index: 10;
-    padding-top: 8px;
   }
   .tab {
-    flex: 1;
-    padding: 16px 8px 14px;
-    text-align: center;
-    border: none;
-    background: none;
-    font-family: Georgia, "Times New Roman", "PingFang TC", serif;
-    font-size: 19px;
-    color: #6b6b6b;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px 22px 22px;
+    border: 1.5px solid #e0dcd2;
+    border-radius: 6px;
+    background: #fff;
     cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
-    letter-spacing: 0.01em;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.18s ease, background 0.18s ease,
+                box-shadow 0.18s ease, transform 0.18s ease;
   }
-  .tab .tab-zh {
-    display: block;
-    font-family: "PingFang TC", "Microsoft JhengHei", serif;
-    font-size: 14px;
-    color: #a89c80;
-    margin-top: 2px;
+  .tab-num {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: #b8a070;
+    margin-bottom: 8px;
     font-weight: 400;
-    letter-spacing: 0.06em;
+  }
+  .tab-label {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #2a2725;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    transition: color 0.18s ease;
+  }
+  .tab-sub {
+    font-size: 14.5px;
+    color: #6b6b6b;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
   }
   .tab:hover {
-    color: #2a2725;
-    background: #faf8f4;
+    border-color: #c9a96b;
+    background: #fffbf3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(168, 127, 61, 0.08);
   }
+  .tab:hover .tab-label { color: #1a1a1a; }
   .tab.active {
-    color: #1a1a1a;
-    border-bottom-color: #c9a96b;
+    background: #f7f5f2;
+    border-color: #c9a96b;
+    box-shadow: 0 3px 12px rgba(168, 127, 61, 0.14);
+  }
+  .tab.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #c9a96b;
+  }
+  .tab.active .tab-num {
+    color: #a87f3d;
     font-weight: 600;
   }
-  .tab.active .tab-zh { color: #c9a96b; }
+  .tab.active .tab-label { color: #1a1a1a; }
+
+  @media (max-width: 640px) {
+    .tabs {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 8px 0 12px;
+    }
+    .tab { padding: 16px 18px 18px; }
+    .tab-label { font-size: 21px; }
+  }
+
   [data-panel] { display: none; }
   [data-panel].active { display: block; }
 
@@ -449,16 +491,19 @@
 
   <div class="tabs" role="tablist">
     <button class="tab active" type="button" data-tab="guide" role="tab" aria-selected="true">
-      Reading Guide
-
+      <span class="tab-num">01</span>
+      <span class="tab-label">Reading Guide</span>
+      <span class="tab-sub">Structured commentary &amp; key terms</span>
     </button>
     <button class="tab" type="button" data-tab="text" role="tab" aria-selected="false">
-      The Text
-
+      <span class="tab-num">02</span>
+      <span class="tab-label">The Text</span>
+      <span class="tab-sub">Full 194-segment translation</span>
     </button>
     <button class="tab" type="button" data-tab="quiz" role="tab" aria-selected="false">
-      Self-Check
-
+      <span class="tab-num">03</span>
+      <span class="tab-label">Self-Check</span>
+      <span class="tab-sub">10-question quiz, instant feedback</span>
     </button>
   </div>
 
