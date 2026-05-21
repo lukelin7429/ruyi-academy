@@ -75,6 +75,55 @@
   .glance dt { color: #6b6b6b; font-weight: 600; }
   .glance dd { color: #2a2725; }
 
+  /* Tab navigation */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e0dcd2;
+    margin: 8px 0 36px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    padding-top: 8px;
+  }
+  .tab {
+    flex: 1;
+    padding: 16px 8px 14px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: Georgia, "Times New Roman", "PingFang TC", serif;
+    font-size: 16px;
+    color: #6b6b6b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .tab .tab-zh {
+    display: block;
+    font-family: "PingFang TC", "Microsoft JhengHei", serif;
+    font-size: 12px;
+    color: #a89c80;
+    margin-top: 2px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+  .tab:hover {
+    color: #2a2725;
+    background: #faf8f4;
+  }
+  .tab.active {
+    color: #1a1a1a;
+    border-bottom-color: #c9a96b;
+    font-weight: 600;
+  }
+  .tab.active .tab-zh { color: #c9a96b; }
+  [data-panel] { display: none; }
+  [data-panel].active { display: block; }
+
   section { margin-bottom: 56px; }
   h2 {
     font-family: Georgia, "Times New Roman", "PingFang TC", serif;
@@ -398,7 +447,22 @@
     </p>
   </section>
 
-  <section>
+  <div class="tabs" role="tablist">
+    <button class="tab active" type="button" data-tab="guide" role="tab" aria-selected="true">
+      Reading Guide
+      <span class="tab-zh">導讀</span>
+    </button>
+    <button class="tab" type="button" data-tab="text" role="tab" aria-selected="false">
+      The Text
+      <span class="tab-zh">經文</span>
+    </button>
+    <button class="tab" type="button" data-tab="quiz" role="tab" aria-selected="false">
+      Self-Check
+      <span class="tab-zh">小考</span>
+    </button>
+  </div>
+
+  <section data-panel="guide" class="active">
     <h2>Reading guide</h2>
 
     <h3>The teaching in one sentence</h3>
@@ -464,7 +528,7 @@
     <p><strong>"Why list the gods? I don't believe in gods."</strong> You don't have to. The list is exhaustive on purpose. The Buddha is saying: whatever your cosmology contains — atoms, energy, consciousness, the universe, God, "the ground of being" — the operation is the same. Substitute your own categories. The instruction holds.</p>
   </section>
 
-  <section>
+  <section data-panel="guide" class="active">
     <h2>Key terms</h2>
     <div class="terms">
       <div class="term">
@@ -491,7 +555,7 @@
     </div>
   </section>
 
-  <section>
+  <section data-panel="text">
     <h2>The text</h2>
     <div class="text-intro">
       The Pāli is structurally repetitive — 192 sections cycling through 8 perspectives × 24 categories. The condensed view below gives the opening in full, one complete cycle in full, and then signposts the rest so the structure stays legible. The full 194-segment view is one click away — and reading it all is part of reading the sutta. The translation is Bhikkhu Sujato's (released CC0 by SuttaCentral).
@@ -826,7 +890,7 @@
     </div>
   </section>
 
-  <section>
+  <section data-panel="quiz">
     <h2>Self-check quiz</h2>
     <p style="font-size:15px; color:#6b6b6b; margin-bottom:20px;">Ten questions. Click an answer to see immediate feedback. No score is recorded — this is for your own checking.</p>
 
@@ -960,6 +1024,43 @@
 
 <script>
 (function() {
+  // Tab navigation
+  const tabs = document.querySelectorAll('.tab[data-tab]');
+  const panels = document.querySelectorAll('[data-panel]');
+
+  function showTab(name, opts = {}) {
+    let found = false;
+    tabs.forEach(function(tab) {
+      const isActive = tab.dataset.tab === name;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive) found = true;
+    });
+    if (!found) return;
+    panels.forEach(function(panel) {
+      panel.classList.toggle('active', panel.dataset.panel === name);
+    });
+    if (opts.updateHash !== false) {
+      history.replaceState(null, '', '#' + name);
+    }
+    if (opts.scroll) {
+      const tabBar = document.querySelector('.tabs');
+      if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      showTab(tab.dataset.tab, { scroll: true });
+    });
+  });
+
+  // Deep-link support: #guide / #text / #quiz
+  const initialHash = window.location.hash.replace('#', '');
+  if (['guide', 'text', 'quiz'].indexOf(initialHash) !== -1) {
+    showTab(initialHash, { updateHash: false });
+  }
+
   // Text view toggle
   const toggleBtn = document.getElementById('toggle-text');
   const condensed = document.getElementById('text-condensed');
