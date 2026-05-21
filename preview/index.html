@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout previews — Ru-Yi Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #14181f; color: #fff;
+    line-height: 1.6; min-height: 100vh;
+    padding: 64px 32px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: #d66a48;
+    font-weight: 600; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 500; margin-bottom: 14px;
+    letter-spacing: -0.015em; line-height: 1.1;
+  }
+  .sub { color: #c0c4c8; margin-bottom: 64px; font-size: 19px; max-width: 760px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: #1d2128;
+    border: 1px solid #2a2f37;
+    border-radius: 10px;
+    padding: 36px 30px 32px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.22s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 5px; background: #b8431c;
+    opacity: 0; transition: opacity 0.22s;
+  }
+  .card:hover {
+    border-color: #b8431c;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+  }
+  .card:hover::before { opacity: 1; }
+  .card .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px; letter-spacing: 0.22em;
+    color: #d66a48; margin-bottom: 16px; font-weight: 600;
+  }
+  .card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px; margin-bottom: 12px;
+    font-weight: 600; line-height: 1.15;
+  }
+  .card .desc {
+    color: #c0c4c8;
+    font-size: 15.5px; line-height: 1.55;
+    margin-bottom: 22px;
+    min-height: 86px;
+  }
+  .card .pros {
+    color: #8a8d93;
+    font-size: 13.5px; line-height: 1.65;
+    margin-bottom: 26px;
+    flex: 1;
+  }
+  .card .pros p { margin-bottom: 6px; color: inherit; }
+  .card .pros .plus { color: #6ba368; font-weight: 700; margin-right: 4px; }
+  .card .pros .minus { color: #c87b6f; font-weight: 700; margin-right: 4px; }
+  .card .open {
+    color: #d66a48; font-weight: 600; font-size: 15px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.18s;
+  }
+  .card:hover .open { gap: 12px; }
+
+  .footer-note {
+    margin-top: 64px; padding-top: 32px;
+    border-top: 1px solid #2a2f37;
+    color: #8a8d93; font-size: 14.5px;
+  }
+  .footer-note a { color: #d66a48; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">MN 1 · Layout exploration</div>
+  <h1>Three ways to lay out the same sutta</h1>
+  <p class="sub">Same content, three layouts. Each preview has a top bar with quick links to flip between them. Live MN 1 is unchanged — pick what feels right and I'll apply it for real.</p>
+
+  <div class="grid">
+
+    <a href="v1-three-col.html" class="card">
+      <div class="num">V1 · MAGAZINE</div>
+      <h2>Three-column</h2>
+      <p class="desc">Sticky left tab nav, reading column in the middle, right-side marginalia with key terms and cross-references always glanceable.</p>
+      <div class="pros">
+        <p><span class="plus">+</span> Uses full screen width</p>
+        <p><span class="plus">+</span> Glossary always visible</p>
+        <p><span class="plus">+</span> Most "real publication" feel</p>
+        <p><span class="minus">−</span> Most to take in at once</p>
+      </div>
+      <span class="open">Open V1 →</span>
+    </a>
+
+    <a href="v2-left-nav.html" class="card">
+      <div class="num">V2 · EDITORIAL</div>
+      <h2>Left sidebar</h2>
+      <p class="desc">Sticky vertical tab nav on the left, single reading column on the right. Cleaner than V1, still anchors the layout in the screen.</p>
+      <div class="pros">
+        <p><span class="plus">+</span> Tabs always reachable</p>
+        <p><span class="plus">+</span> Less visually busy</p>
+        <p><span class="plus">+</span> Clear focus on content</p>
+        <p><span class="minus">−</span> Right edge still wide white</p>
+      </div>
+      <span class="open">Open V2 →</span>
+    </a>
+
+    <a href="v3-wide.html" class="card">
+      <div class="num">V3 · SIMPLE</div>
+      <h2>Wide single column</h2>
+      <p class="desc">No sidebars. Container widened to 960px, font sizes bumped to fill the visual space. Smallest structural change.</p>
+      <div class="pros">
+        <p><span class="plus">+</span> Smallest jump from current</p>
+        <p><span class="plus">+</span> Big readable type</p>
+        <p><span class="plus">+</span> Works fine on mobile</p>
+        <p><span class="minus">−</span> Big screens still margined</p>
+      </div>
+      <span class="open">Open V3 →</span>
+    </a>
+
+  </div>
+
+  <div class="footer-note">
+    All three load the same MN 1 text and quiz — only the layout differs. Tell me which version (or which mix of features) feels right and I'll roll it out across the MN pages.
+    <br>Back to <a href="../">Ru-Yi Academy</a>.
+  </div>
+
+</div>
+</body>
+</html>
