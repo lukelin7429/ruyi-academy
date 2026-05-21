@@ -4,67 +4,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ru-Yi Academy — Buddhist study and practice in English</title>
-<meta name="description" content="Ru-Yi Academy offers Buddhist study and practice for English-speaking learners. A program of Ru-Yi Meditation Center.">
+<meta name="description" content="Authentic Buddhist teachings, made freely accessible to every sincere seeker in English. A program of Ru-Yi Meditation Center.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
     background: #fff;
     color: #1a1a1a;
     line-height: 1.65;
-    font-size: 17px;
+    font-size: 19px;
     -webkit-font-smoothing: antialiased;
   }
-  .container {
-    max-width: 680px;
+
+  /* ============ Hero banner ============ */
+  .hero {
+    background: linear-gradient(180deg, #faf6ec 0%, #fffbf3 65%, #ffffff 100%);
+    padding: 88px 24px 72px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #efe9d8;
+  }
+  /* Soft glow accents */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -80px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(201, 169, 107, 0.16) 0%, rgba(201, 169, 107, 0) 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(168, 127, 61, 0.10) 0%, rgba(168, 127, 61, 0) 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 780px;
     margin: 0 auto;
-    padding: 64px 24px 96px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
   }
   .parent-mark {
+    font-family: Georgia, serif;
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: #6b6b6b;
-    margin-bottom: 24px;
+    color: #a87f3d;
+    margin-bottom: 26px;
+    font-weight: 500;
   }
-  h1 {
-    font-family: Georgia, "Times New Roman", "PingFang TC", serif;
-    font-size: clamp(40px, 7vw, 56px);
+  .hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(52px, 8.5vw, 84px);
     font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    margin-bottom: 20px;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
     color: #1a1a1a;
+    margin-bottom: 22px;
   }
-  .tagline {
-    font-size: 19px;
-    color: #4a4a4a;
-    margin-bottom: 56px;
-    max-width: 540px;
+  .gold-rule {
+    width: 64px;
+    height: 2px;
+    background: #c9a96b;
+    margin: 0 auto 30px;
   }
-  section { margin-bottom: 48px; }
-  h2 {
-    font-family: Georgia, "Times New Roman", "PingFang TC", serif;
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 14px;
+  .hero .vision {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 2.4vw, 25px);
+    line-height: 1.5;
+    font-style: italic;
     color: #2a2725;
+    max-width: 620px;
+    margin: 0 auto 36px;
   }
-  p { margin-bottom: 14px; color: #2a2725; }
-  p:last-child { margin-bottom: 0; }
-  .pilot-note {
-    background: #f7f5f2;
-    border-left: 3px solid #2a2725;
-    padding: 20px 24px;
-    margin: 0 0 48px;
-    font-size: 16px;
+  .pilot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #e0d8c3;
+    padding: 9px 18px;
+    border-radius: 22px;
+    font-size: 14px;
+    color: #5a4f3d;
+    letter-spacing: 0.04em;
+    font-weight: 500;
   }
-  .pilot-note strong {
-    display: block;
-    margin-bottom: 6px;
+  .pilot-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6ba368;
+    box-shadow: 0 0 0 3px rgba(107, 163, 104, 0.22);
+  }
+
+  /* ============ Body container ============ */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 24px 96px;
+  }
+
+  section { margin-bottom: 72px; }
+  section:last-of-type { margin-bottom: 0; }
+
+  .section-eyebrow {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a87f3d;
+    margin-bottom: 14px;
     font-weight: 600;
   }
+  h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .section-lede {
+    color: #4a4a4a;
+    margin-bottom: 32px;
+    font-size: 19px;
+    max-width: 640px;
+  }
+  p { color: #2a2725; margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
   a {
     color: #1a1a1a;
     text-decoration: underline;
@@ -72,51 +151,230 @@
     text-decoration-thickness: 1px;
   }
   a:hover { color: #6b6b6b; }
+
+  /* ============ Entry cards ============ */
+  .entry-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .entry-card {
+    display: block;
+    padding: 30px 32px 28px;
+    border: 1.5px solid #e0dcd2;
+    border-radius: 8px;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .entry-card.live {
+    border-color: #c9a96b;
+    background: linear-gradient(135deg, #fffbf3 0%, #fff8e8 100%);
+  }
+  .entry-card.live::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #c9a96b;
+  }
+  .entry-card.live:hover {
+    border-color: #a87f3d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 127, 61, 0.18);
+  }
+  .entry-card.placeholder {
+    background: #fafaf7;
+    border-color: #ececec;
+    cursor: default;
+  }
+  .card-tag {
+    display: inline-block;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6ba368;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .entry-card.placeholder .card-tag {
+    color: #a8a89c;
+  }
+  .entry-card h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .entry-card.placeholder h3 { color: #6b6b6b; }
+  .card-sub {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #6b6b6b;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .card-desc {
+    color: #4a4a4a;
+    margin-bottom: 18px;
+    font-size: 16.5px;
+    line-height: 1.6;
+  }
+  .card-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #a87f3d;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    transition: gap 0.18s ease;
+  }
+  .entry-card.live:hover .card-arrow { gap: 12px; }
+
+  /* ============ Lower sections ============ */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .value {
+    border-top: 2px solid #c9a96b;
+    padding-top: 14px;
+  }
+  .value-name {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+  }
+  .value-name .pali {
+    font-style: italic;
+    color: #6b6b6b;
+    font-weight: 400;
+    margin-right: 4px;
+  }
+  .value-desc {
+    font-size: 15.5px;
+    color: #4a4a4a;
+    line-height: 1.55;
+  }
+
   footer {
     margin-top: 80px;
     padding-top: 32px;
     border-top: 1px solid #ececec;
-    font-size: 14px;
+    font-size: 14.5px;
     color: #6b6b6b;
+    text-align: center;
   }
-  footer p { color: #6b6b6b; }
+  footer a { color: #6b6b6b; }
+  footer p { color: #6b6b6b; margin-bottom: 6px; }
+  footer p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 56px; }
+    .container { padding: 60px 20px 80px; }
+    section { margin-bottom: 60px; }
+    .entry-card { padding: 24px 22px; }
+    .entry-card h3 { font-size: 26px; }
+    h2 { font-size: 28px; }
+  }
 </style>
 </head>
 <body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="parent-mark">A program of Ru-Yi Meditation Center</div>
+    <h1>Ru-Yi Academy</h1>
+    <div class="gold-rule"></div>
+    <p class="vision">Authentic Buddhist teachings, made freely accessible to every sincere seeker in the English-speaking world.</p>
+    <div class="pilot-badge">
+      <span class="dot"></span>
+      Currently in Pilot &nbsp;·&nbsp; Public launch 2028
+    </div>
+  </div>
+</header>
+
 <div class="container">
 
-  <div class="parent-mark">A program of Ru-Yi Meditation Center</div>
-
-  <h1>Ru-Yi Academy</h1>
-
-  <p class="tagline">
-    Buddhist study and practice for English-speaking learners — taught in plain English, grounded in the classical tradition.
-  </p>
-
-  <div class="pilot-note">
-    <strong>Currently in Pilot</strong>
-    Ru-Yi Academy is in an invitation-only Pilot phase through 2027. Public enrollment is planned for 2028.
-  </div>
-
   <section>
-    <h2>What we offer</h2>
-    <p>
-      Structured study of Buddhist teachings — sutras, doctrine, and meditation practice — adapted for learners whose primary language is English. Our materials are written, not translated, in English by teachers familiar with both the source tradition and the questions Western practitioners actually bring.
-    </p>
+    <div class="section-eyebrow">Begin here</div>
+    <h2>Choose where to start</h2>
+    <p class="section-lede">Ru-Yi Academy is being built one teaching series at a time. The first series is live; the others are on the way.</p>
+
+    <div class="entry-cards">
+      <a href="majjhima-nikaya/" class="entry-card live">
+        <span class="card-tag">● Available now</span>
+        <h3>Majjhima Nikāya</h3>
+        <p class="card-sub">The Middle-Length Discourses of the Buddha</p>
+        <p class="card-desc">152 dialogues, parables, and meditation instructions from the Pāli Canon. Each entry has a reading guide written for English speakers, the full Bhikkhu Sujato translation, and a self-check quiz. MN 1 is live; the rest are coming.</p>
+        <span class="card-arrow">Enter the series →</span>
+      </a>
+
+      <div class="entry-card placeholder">
+        <span class="card-tag">In preparation</span>
+        <h3>Foundations</h3>
+        <p class="card-sub">An eight-week introduction to the Dharma</p>
+        <p class="card-desc">The Four Noble Truths, the Eightfold Path, karma and rebirth, impermanence, the nature of mind — a structured first course for English-speaking newcomers.</p>
+      </div>
+
+      <div class="entry-card placeholder">
+        <span class="card-tag">In preparation</span>
+        <h3>Meditation</h3>
+        <p class="card-sub">Shamatha · Vipassanā · Metta</p>
+        <p class="card-desc">Practice-first instruction in the three foundational modes of Buddhist meditation, with weekly live office hours during Pilot terms.</p>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>Who we serve</h2>
-    <p>
-      Western practitioners who want substance over surface — including former English teachers who have lived and taught in Taiwan, and others looking for a serious, accessible path into Mahāyāna study.
-    </p>
+    <div class="section-eyebrow">What we offer</div>
+    <p>Structured study of Buddhist teachings — sūtras, doctrine, and meditation practice — adapted for learners whose primary language is English. Our materials are written, not translated, in English by teachers familiar with both the source tradition and the questions Western practitioners actually bring.</p>
   </section>
 
   <section>
-    <h2>Get in touch</h2>
-    <p>
-      For Pilot inquiries, contact <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>.
-    </p>
+    <div class="section-eyebrow">Who we serve</div>
+    <p>Western practitioners who want substance over surface — former English teachers who have lived and taught in Taiwan, second-generation overseas Chinese, and others looking for a serious, accessible path into Mahāyāna and Theravāda study.</p>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">What we stand for</div>
+    <div class="values-grid">
+      <div class="value">
+        <div class="value-name"><span class="pali">Dāna</span>Generosity</div>
+        <div class="value-desc">All teachings free, and they will stay free. Sharing the Dharma is the practice, not a transaction.</div>
+      </div>
+      <div class="value">
+        <div class="value-name">Clarity</div>
+        <div class="value-desc">Plain English. We do not hide behind jargon and we explain Pāli terms when they are useful.</div>
+      </div>
+      <div class="value">
+        <div class="value-name">Authenticity</div>
+        <div class="value-desc">Grounded in the canonical sources of the Pāli, Chinese, and Sanskrit traditions, not in soft self-help.</div>
+      </div>
+      <div class="value">
+        <div class="value-name">Accessibility</div>
+        <div class="value-desc">No geography, no language tax, no paywall. The Dharma was meant to be heard.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Get in touch</div>
+    <p>For Pilot inquiries, contact <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>.</p>
   </section>
 
   <footer>
